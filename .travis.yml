@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t adeyems/react_app -f Dockerfile.dev
+
+script:
+  - docker run adeyems/react_app npm run test -- --coverage
